@@ -41,3 +41,19 @@
         transform: translateY(-5px);
     }
 }
+
+.rose {
+    position: relative;
+    height: 40vh;
+    width: 100%;
+    background-image: url(images/roses.avif);
+    background-size: cover;
+    background-position: center 60%;
+}
+
+.rose::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+}
