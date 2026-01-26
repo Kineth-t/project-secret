@@ -11,6 +11,10 @@
     background: black;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .start {
     display:flex;
     justify-content: center;
@@ -26,9 +30,9 @@
     position: absolute;
     bottom: 10%;
     font-size: 1rem;
-    opacity: 0.6;
-    animation: bounce 2s infinite;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+    animation: bounce 2s infinite, hint-fade-out linear forwards;
+    animation-timeline: auto, scroll(root);
 }
 
 @keyframes bounce {
@@ -43,11 +47,19 @@
     }
 }
 
+@keyframes hint-fade-out {
+    0% {
+        opacity: 0.6;
+    }
+    40% {
+        opacity: 0;
+    }
+}
+
 .rose {
     position: relative;
     height: 40vh;
     width: 100%;
-    /* overflow: hidden; */
 }
 
 .rose::before {
@@ -86,12 +98,16 @@
     width: 100%;
     overflow-x: auto;
     margin: 3em auto;
-    display: flex;
+    display: flex;  
     gap: 1em;
 }
 
 .memory-carousel::-webkit-scrollbar {
     display: none;
+}
+
+.memory-carousel::-webkit-scrollbar-button(right) {
+    content: "->";
 }
 
 .card {
