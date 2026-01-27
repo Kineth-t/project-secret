@@ -95,7 +95,7 @@ body {
 }
 
 .carousel {
-    width: 70%;
+    width: 500px;
     overflow-x: auto;
     margin: 3em auto;
     display: flex;  
@@ -163,5 +163,5 @@ body {
     padding: 1em;
     text-align: center;
     align-content: center;
-    border-radius: 0.5em;
+    border-radius: 1em;
 }
