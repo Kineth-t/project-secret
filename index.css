@@ -8,11 +8,11 @@
     font-style: normal;
     font-variation-settings:
     "wdth" 100;
-    background: black;
 }
 
 body {
     overflow-x: hidden;
+    background: black; /* Add it here instead */
 }
 
 .start {
@@ -94,28 +94,79 @@ body {
     height: 100vh;
 }
 
-.memory-carousel {
-    width: 100%;
+.carousel {
+    width: 70%;
     overflow-x: auto;
     margin: 3em auto;
     display: flex;  
     gap: 1em;
+    scroll-behavior: smooth;
+    anchor-name: --carousel;
+    scroll-snap-type: x mandatory;
 }
 
-.memory-carousel::-webkit-scrollbar {
+.carousel::-webkit-scrollbar {
     display: none;
 }
 
-.memory-carousel::-webkit-scrollbar-button(right) {
-    content: "->";
+.carousel::scroll-button(right), .carousel::scroll-button(left) {
+    content: "→";
+    border: none;
+    background-color: rgb(176, 51, 95);
+    font-size: 3em;
+    color: black;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding-bottom: .2em;
+    cursor: pointer;
+    position: fixed;
+    position-anchor: --carousel;
+    position-area: right center;
+}
+
+.carousel::scroll-button(left) {
+    content: "←";
+    position-area: left center;
+}
+
+.carousel::scroll-button(left):disabled, .carousel::scroll-button(right):disabled {
+    opacity: 0.5;
+    cursor: auto;
+}
+
+.carousel::scroll-marker-group {
+    display: flex;
+    justify-content: center;
+    gap: .5em;
+}
+
+.card::scroll-marker {
+    content: '';
+    width: .1em;
+    height: .1em;
+    background-color: rgb(235, 97, 147);
+    border-radius: 50%;
+}
+
+.card::scroll-marker:target-current {
+    background-color: #833753;
 }
 
 .card {
-    flex: 0 0 20em;
-    background-color: rgb(235, 97, 147);
-    height: 12em;
+    scroll-snap-align: start;
+    flex: 0 0 100%;
+    background-color: #eb6193;
+    height: 18em;
+    min-width: 100%;
     padding: 1em;
     text-align: center;
     align-content: center;
     border-radius: 0.5em;
+}
+
+@media(max-width: 500px) {
+    .card {
+        flex: 0 0 100%;
+    }
 }
