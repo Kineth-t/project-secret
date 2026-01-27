@@ -103,6 +103,7 @@ body {
     scroll-behavior: smooth;
     anchor-name: --carousel;
     scroll-snap-type: x mandatory;
+    scroll-marker-group: after;
 }
 
 .carousel::-webkit-scrollbar {
@@ -143,8 +144,8 @@ body {
 
 .card::scroll-marker {
     content: '';
-    width: .1em;
-    height: .1em;
+    width: 1em;
+    height: 1em;
     background-color: rgb(235, 97, 147);
     border-radius: 50%;
 }
@@ -163,10 +164,4 @@ body {
     text-align: center;
     align-content: center;
     border-radius: 0.5em;
-}
-
-@media(max-width: 500px) {
-    .card {
-        flex: 0 0 100%;
-    }
 }
