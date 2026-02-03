@@ -171,5 +171,26 @@ body {
     height: 100vh;
     margin-top: 3em;
     padding: 3em;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.memory-book {
+    width: 50%;
+    height: 50vh;
+}
+
+.hard {
+    background:rgb(113, 64, 29) !important 
+}
+
+.memory-book .page {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
