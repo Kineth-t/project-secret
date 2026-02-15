@@ -184,7 +184,7 @@ body {
 }
 
 .hard {
-    background:rgb(113, 64, 29) !important 
+    background:rgb(161, 94, 47) !important 
 }
 
 .memory-book .page {
@@ -193,4 +193,24 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.memory-lane img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 500px) {
+
+    .memory-lane {
+        padding: 1em;
+    }
+
+    .memory-book {
+        width: 100%;
+        height: 100vh;
+    }
+
 }
