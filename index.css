@@ -12,11 +12,12 @@
 
 body {
     overflow-x: hidden;
-    background: black; /* Add it here instead */
+    background: black;
 }
 
+/* ── START SECTION ── */
 .start {
-    display:flex;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -24,8 +25,23 @@ body {
     width: 100%;
     height: 100vh;
     font-size: xx-large;
+    text-align: center;
+    padding: 1em;
 }
 
+@media (max-width: 600px) {
+    .start {
+        font-size: x-large;
+    }
+}
+
+@media (max-width: 380px) {
+    .start {
+        font-size: large;
+    }
+}
+
+/* ── SCROLL HINT ── */
 .scroll-hint {
     position: absolute;
     bottom: 10%;
@@ -36,7 +52,7 @@ body {
 }
 
 @keyframes bounce {
-     0%, 20%, 50%, 80%, 100% {
+    0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
     }
     40% {
@@ -56,6 +72,11 @@ body {
     }
 }
 
+/* ── ROSE SECTION ── */
+.rose-wrapper {
+    width: 100%;
+}
+
 .rose {
     position: relative;
     height: 40vh;
@@ -73,7 +94,7 @@ body {
     transform-origin: center bottom;
 
     animation-name: fade-out;
-    animation-timing-function: linear infinite;
+    animation-timing-function: linear;
     animation-duration: 1s;
     animation-timeline: view();
     animation-range: entry 90% cover 100%;
@@ -90,15 +111,12 @@ body {
     }
 }
 
-.placeholder {
-    height: 100vh;
-}
-
+/* ── CAROUSEL ── */
 .carousel {
-    width: 500px;
+    width: min(500px, 90vw);
     overflow-x: auto;
     margin: 3em auto;
-    display: flex;  
+    display: flex;
     gap: 1em;
     scroll-behavior: smooth;
     anchor-name: --carousel;
@@ -110,7 +128,9 @@ body {
     display: none;
 }
 
-.carousel::scroll-button(right), .carousel::scroll-button(left) {
+/* Scroll buttons — hide on touch devices where they won't work */
+.carousel::scroll-button(right),
+.carousel::scroll-button(left) {
     content: "→";
     border: none;
     background-color: rgb(176, 51, 95);
@@ -131,15 +151,28 @@ body {
     position-area: left center;
 }
 
-.carousel::scroll-button(left):disabled, .carousel::scroll-button(right):disabled {
+.carousel::scroll-button(left):disabled,
+.carousel::scroll-button(right):disabled {
     opacity: 0.5;
     cursor: auto;
+}
+
+/* Make scroll buttons smaller on narrow screens */
+@media (max-width: 600px) {
+    .carousel::scroll-button(right),
+    .carousel::scroll-button(left) {
+        font-size: 1.8em;
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .carousel::scroll-marker-group {
     display: flex;
     justify-content: center;
     gap: .5em;
+    flex-wrap: wrap;
+    padding: 0.5em 0;
 }
 
 .card::scroll-marker {
@@ -160,15 +193,27 @@ body {
     background-color: #eb6193;
     height: 18em;
     min-width: 100%;
-    padding: 1em;
+    padding: 1.2em;
     text-align: center;
     align-content: center;
     border-radius: 1em;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    line-height: 1.5;
 }
 
+@media (max-width: 400px) {
+    .card {
+        height: auto;
+        min-height: 16em;
+        padding: 1em 0.8em;
+    }
+}
+
+/* ── MEMORY LANE ── */
 .memory-lane {
     background-color: cornsilk;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     margin-top: 3em;
     padding: 3em;
     display: flex;
@@ -178,13 +223,19 @@ body {
     gap: 50px;
 }
 
+.memory-lane h3 {
+    text-align: center;
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
+    line-height: 1.4;
+}
+
 .memory-book {
     width: 50%;
     height: 50vh;
 }
 
 .hard {
-    background:rgb(161, 94, 47) !important 
+    background: rgb(161, 94, 47) !important;
 }
 
 .memory-book .page {
@@ -202,15 +253,97 @@ body {
     display: block;
 }
 
-@media (max-width: 500px) {
+.placeholder {
+    height: 100vh;
+}
 
+
+/* Tablets (601px – 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
     .memory-lane {
-        padding: 1em;
+        padding: 2em;
+        gap: 30px;
+    }
+
+    .memory-book {
+        width: 70%;
+        height: 55vh;
+    }
+}
+
+/* Mobile (≤ 600px) */
+@media (max-width: 600px) {
+    .memory-lane {
+        padding: 1.2em;
+        gap: 24px;
+        min-height: 100vh;
+        height: auto;
+        justify-content: flex-start;
+        padding-top: 3em;
+        padding-bottom: 3em;
     }
 
     .memory-book {
         width: 100%;
-        height: 100vh;
+        height: 80vw;
+        min-height: 320px;
     }
 
+    .placeholder {
+        height: 40vh;
+    }
+}
+
+/* ── DEDICATION CONTAINER ── */
+.dedication-container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 10px;
+    aspect-ratio: 1 / 1;
+    color: floralwhite;
+}
+
+.dedication-container .grid-cell {
+    background-color: #eb6193;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-title {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    text-align: center;
+}
+
+.zerm {
+    grid-column: 2 / 3;
+    grid-row: 3 / 7;
+    background-image: url(images/zermane.jpg);
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 380px) {
+    .memory-lane {
+        padding: 0.8em;
+        gap: 16px;
+    }
+
+    .memory-book {
+        width: 100%;
+        height: 75vw;
+        min-height: 280px;
+    }
 }
