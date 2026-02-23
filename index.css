@@ -304,6 +304,7 @@ body {
     gap: 10px;
     aspect-ratio: 1 / 1;
     color: floralwhite;
+    padding-bottom: 4em;
 }
 
 .arrow {
@@ -440,7 +441,7 @@ body {
 
 @keyframes message-right {
     0%, 100% { transform: translateX(0);  opacity: 1; }
-    50%       { transform: translateX(10px); opacity: 0.75; }
+    50%       { transform: translateX(20px); opacity: 0.75; }
 }
 
 .middle-2,
@@ -452,7 +453,7 @@ body {
 
 @keyframes message-left {
     0%, 100% { transform: translateX(0);   opacity: 1; }
-    50%       { transform: translateX(-10px); opacity: 0.75; }
+    50%       { transform: translateX(-20px); opacity: 0.75; }
 }
 
 .middle-1 { animation-delay: 0.2s; }
@@ -467,6 +468,51 @@ body {
 .middle-7 { animation-delay: 0.8s; }
 .middle-8 { animation-delay: 0.8s; }
 
+.future {
+  text-align: center;
+  padding: 40px;
+  background: #fdf6f0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.note {
+  background: #fffa86;
+  padding: 20px;
+  width: 200px;
+  min-height: 120px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 16px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  transform: rotate(-3deg);
+  transition: transform 0.2s ease;
+}
+
+.note:nth-child(even) {
+  background: #ffb6c1;
+  transform: rotate(3deg);
+}
+
+.note:nth-child(3) {
+  background: #b5ead7;
+  transform: rotate(-5deg);
+}
+
+.note:hover {
+  transform: scale(1.05) rotate(0deg);
+}
 
 @media (max-width: 380px) {
     .memory-lane {
