@@ -472,6 +472,9 @@ body {
 
 .note {
     background: #fffa86;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     width: 200px;
     min-height: 120px;
