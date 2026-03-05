@@ -32,7 +32,7 @@
         <div class="card">And look at where we are now. It still feels unreal sometimes, but I wouldn't trade this for anything in the world</div>
         <div class="card">Despite any downs in the future, I want you to know my love for you isn't going anywhere, so you better buckle up!!!</div>
         <div class="card">No matter where life takes us next, I'm grateful it led me to you, and I can't wait to see where our story goes.</div>
-        <div class="card">I love you Zermane Ruth Heng Xin Min &hearts;</div>
+        <div class="card">I love you Zermane &hearts;</div>
     </div>
     <div class="memory-lane">
         <h3>Let's relook some of our memories together</h3>
@@ -217,8 +217,13 @@
         // Fireworks
         const canvas = document.getElementById("fireworks");
         const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        function resizeCanvas() {
+            canvas.width = document.documentElement.clientWidth;
+            canvas.height = document.documentElement.clientHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
 
         let particles = [];
 

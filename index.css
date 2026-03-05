@@ -128,7 +128,7 @@ body {
     display: none;
 }
 
-/* Scroll buttons — hide on touch devices where they won't work */
+/* Scroll buttons */
 .carousel::scroll-button(right),
 .carousel::scroll-button(left) {
     content: "→";
@@ -161,9 +161,9 @@ body {
 @media (max-width: 600px) {
     .carousel::scroll-button(right),
     .carousel::scroll-button(left) {
-        font-size: 1.8em;
-        width: 40px;
-        height: 40px;
+        font-size: 0.3em;
+        width: 15px;
+        height:15px;
     }
 }
 
@@ -221,6 +221,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 50px;
+    overflow: scroll;
 }
 
 .memory-lane h3 {
@@ -244,13 +245,16 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 1rem;
+    padding: 0.2rem;
 }
 
 .memory-lane img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
+    background-color: black;
 }
 
 .placeholder {
@@ -271,28 +275,6 @@ body {
     }
 }
 
-/* Mobile (≤ 600px) */
-@media (max-width: 600px) {
-    .memory-lane {
-        padding: 1.2em;
-        gap: 24px;
-        min-height: 100vh;
-        height: auto;
-        justify-content: flex-start;
-        padding-top: 3em;
-        padding-bottom: 3em;
-    }
-
-    .memory-book {
-        width: 100%;
-        height: 80vw;
-        min-height: 320px;
-    }
-
-    .placeholder {
-        height: 40vh;
-    }
-}
 
 /* ── DEDICATION CONTAINER ── */
 .dedication-container {
@@ -469,125 +451,126 @@ body {
 .middle-8 { animation-delay: 0.8s; }
 
 .future {
-  text-align: center;
-  padding: 40px;
-  background: #fdf6f0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 100px
+    text-align: center;
+    padding: 40px;
+    background: #fdf6f0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px
 }
 
 .notes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
 }
 
 .note {
-  background: #fffa86;
-  padding: 20px;
-  width: 200px;
-  min-height: 120px;
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 16px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-  transform: rotate(-3deg);
-  transition: transform 0.2s ease;
+    background: #fffa86;
+    padding: 20px;
+    width: 200px;
+    min-height: 120px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 16px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+    transform: rotate(-3deg);
+    transition: transform 0.2s ease;
 }
 
 .note:nth-child(even) {
-  background: #ffb6c1;
-  transform: rotate(3deg);
+    background: #ffb6c1;
+    transform: rotate(3deg);
 }
 
 .note:nth-child(3) {
-  background: #b5ead7;
-  transform: rotate(-5deg);
+    background: #b5ead7;
+    transform: rotate(-5deg);
 }
 
 .note:hover {
-  transform: scale(1.05) rotate(0deg);
+    transform: scale(1.05) rotate(0deg);
 }
 
 
 .confession-container {
-  text-align: center;
-  z-index: 2;
-  background: white;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
+    text-align: center;
+    z-index: 2;
+    background: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
 }
 
 button {
-  padding: 15px 30px;
-  font-size: 18px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.2s;
-  width: 100px;
-  height: 55px
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.2s;
+    width: 100px;
+    height: 55px
 }
 
 #yes {
-  background-color: #4caf50;
-  color: white;
-  position: absolute;
-  left: calc(50% - 120px);
-  top: calc(50% + 40px);
+    background-color: #4caf50;
+    color: white;
+    position: absolute;
+    left: calc(50% - 120px);
+    top: calc(50% + 40px);
 }
 
 #no {
-  background-color: #e53935;
-  color: white;
-  position: absolute;
-  right: calc(50% - 120px);
-  top: calc(50% + 40px);
-  transition: none;
+    background-color: #e53935;
+    color: white;
+    position: absolute;
+    right: calc(50% - 120px);
+    top: calc(50% + 40px);
+    transition: none;
 }
 
 #popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  display: none;
-  z-index: 11;
-  font-size: 1.5rem;
-  text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 11;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 10;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10;
 }
 
 @media (max-width: 380px) {
     .memory-lane {
-        padding: 0.8em;
         gap: 16px;
     }
 
@@ -595,5 +578,40 @@ canvas {
         width: 100%;
         height: 75vw;
         min-height: 280px;
+    }
+
+    .future {
+        gap: 0;
+        padding-top: 60%;
+        height: auto;
+}
+
+@media (max-width: 600px) {
+    .dedication-container {
+        height: auto;
+        min-height: 100vh;
+        aspect-ratio: unset;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5em;
+
+        padding: 3em 1em;
+    }
+
+    .zerm {
+        width: 100%;
+        height: 300px;
+        background-size: contain;
+    }
+
+    .arrow {
+        display: none; /* arrows cause layout overflow on small screens */
+    }
+
+    .center-grid,
+    .compliment {
+        animation: none;
     }
 }
